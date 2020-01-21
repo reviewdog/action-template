@@ -5,18 +5,40 @@ on:
       - master
   pull_request:
 jobs:
-  test:
+  test-check:
+    name: runner / <linter-name> (github-check)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-
-      - name: Get Star Count
-        uses: ./
-        id: sample
+      - uses: ./
         with:
-          repo: "reviewdog/reviewdog"
+          github_token: ${{ secrets.github_token }}
+          reporter: github-check
+          level: info
+          locale: "US"
 
-      - name: Check Star Count
-        run: |
-          test -n "${{ steps.sample.outputs.star }}"
-          echo "${{ steps.sample.outputs.star }}"
+  test-pr-check:
+    if: github.event_name == 'pull_request'
+    name: runner / <linter-name> (github-pr-check)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-check
+          level: error
+          locale: "US"
+
+  test-pr-review:
+    if: github.event_name == 'pull_request'
+    name: runner / <linter-name> (github-pr-review)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: ./
+        with:
+          github_token: ${{ secrets.github_token }}
+          reporter: github-pr-review
+          level: error
+          locale: "US"
