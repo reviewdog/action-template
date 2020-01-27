@@ -2,6 +2,8 @@ name: depup
 on:
   schedule:
     - cron:  '14 14 * * *' # Runs at 14:14 UTC every day
+  # Run the following curl command to trigger depup workflow manually.
+  # $ curl -H "Authorization: token ${GITHUB_API_TOKEN}" https://api.github.com/repos/reviewdog/action-template/dispatches -d '{"event_type":"depup"}'
   repository_dispatch:
     types: [depup]
 
