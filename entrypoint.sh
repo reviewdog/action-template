@@ -1,7 +1,9 @@
 #!/bin/sh
 set -e
 
-cd "${GITHUB_WORKSPACE}" || exit
+if [ -n "${GITHUB_WORKSPACE}" ]; then
+  cd "${GITHUB_WORKSPACE}" || exit
+fi
 
 export REVIEWDOG_GITHUB_API_TOKEN="${INPUT_GITHUB_TOKEN}"
 

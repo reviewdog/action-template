@@ -6,13 +6,18 @@
 [![depup](https://github.com/reviewdog/action-template/workflows/depup/badge.svg)](https://github.com/reviewdog/action-template/actions?query=workflow%3Adepup)
 [![release](https://github.com/reviewdog/action-template/workflows/release/badge.svg)](https://github.com/reviewdog/action-template/actions?query=workflow%3Arelease)
 [![GitHub release (latest SemVer)](https://img.shields.io/github/v/release/reviewdog/action-template?logo=github&sort=semver)](https://github.com/reviewdog/action-template/releases)
+[![action-bumpr supported](https://img.shields.io/badge/bumpr-supported-ff69b4?logo=github&link=https://github.com/haya14busa/action-bumpr)](https://github.com/haya14busa/action-bumpr)
+
+![github-pr-review demo](https://user-images.githubusercontent.com/3797062/73162963-4b8e2b00-4132-11ea-9a3f-f9c6f624c79f.png)
+![github-pr-check demo](https://user-images.githubusercontent.com/3797062/73163032-70829e00-4132-11ea-8481-f213a37db354.png)
 
 This is a template repository for [reviewdog](https://github.com/reviewdog/reviewdog) action with release automation.
-Click `Use this template` button to create your action based on this template.
+Click `Use this template` button to create your reviewdog action :dog:!
 
-If you want to create your own reviewdog from scratch without using this
-template, please check release automation flow at least.
-It's important to manage release workflow and sync reviewdog version.
+If you want to create your own reviewdog actionfrom scratch without using this
+template, please check and copy release automation flow.
+It's important to manage release workflow and sync reviewdog version for all
+reviewdog actions.
 
 This repo caontains a sample action to run [misspell](https://github.com/client9/misspell).
 
