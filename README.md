@@ -10,7 +10,11 @@
 This is a template repository for [reviewdog](https://github.com/reviewdog/reviewdog) action with release automation.
 Click `Use this template` button to create your action based on this template.
 
-A sample action is to get GitHub star counts from a given repository.
+If you want to create your own reviewdog from scratch without using this
+template, please check release automation flow at least.
+It's important to manage release workflow and sync reviewdog version.
+
+This repo caontains a sample action to run [misspell](https://github.com/client9/misspell).
 
 ## Input
 
@@ -25,7 +29,7 @@ inputs:
     description: 'Report level for reviewdog [info,warning,error]'
     default: 'error'
   reporter:
-    description: 'Reporter of reviewdog command [github-pr-check,github-pr-review].'
+    description: 'Reporter of reviewdog command [github-pr-check,github-check,github-pr-review].'
     default: 'github-pr-check'
   ### Flags for <linter-name> ###
   locale:
@@ -34,9 +38,27 @@ inputs:
 ```
 
 ## Usage
-<!-- TODO: update -->
+<!-- TODO: update. replace `template` with the linter name -->
 
-TODO
+```yaml
+name: reviewdog
+on: [pull_request]
+jobs:
+  # TODO: change `linter_name`.
+  linter_name:
+    name: runner / <linter-name>
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: reviewdog/action-template@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+          # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
+          reporter: github-pr-review
+          # Change reporter level if you need.
+          # GitHub Status Check won't become failure with warning.
+          level: warning
+```
 
 ## Development
 
@@ -53,6 +75,9 @@ ref: https://help.github.com/en/articles/about-actions#versioning-your-action
 
 ### Lint - reviewdog integration
 
+This reviewdog action template itself is integrated with reviewdog to run lints
+which is useful for Docker container based actions.
+
 ![reviewdog integration](https://user-images.githubusercontent.com/3797062/72735107-7fbb9600-3bde-11ea-8087-12af76e7ee6f.png)
 
 Supported linters:
@@ -64,3 +89,6 @@ Supported linters:
 ### Dependencies Update Automation
 This repository uses [haya14busa/action-depup](https://github.com/haya14busa/action-depup) to update
 reviewdog version.
+
+[![reviewdog depup demo](https://user-images.githubusercontent.com/3797062/73154254-170e7500-411a-11ea-8211-912e9de7c936.png)](https://github.com/reviewdog/action-template/pull/6)
+
