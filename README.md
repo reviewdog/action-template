@@ -29,7 +29,7 @@ inputs:
     description: 'Report level for reviewdog [info,warning,error]'
     default: 'error'
   reporter:
-    description: 'Reporter of reviewdog command [github-pr-check,github-pr-review].'
+    description: 'Reporter of reviewdog command [github-pr-check,github-check,github-pr-review].'
     default: 'github-pr-check'
   ### Flags for <linter-name> ###
   locale:
@@ -38,9 +38,27 @@ inputs:
 ```
 
 ## Usage
-<!-- TODO: update -->
+<!-- TODO: update. replace `template` with the linter name -->
 
-TODO
+```yaml
+name: reviewdog
+on: [pull_request]
+jobs:
+	# TODO: change `linter_name`.
+  linter_name:
+    name: runner / <linter-name>
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: reviewdog/action-template@v1
+        with:
+          github_token: ${{ secrets.github_token }}
+					# Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
+          reporter: github-pr-review
+					# Change reporter level if you need.
+					# GitHub Status Check won't become failure with warning.
+          level: warning
+```
 
 ## Development
 
