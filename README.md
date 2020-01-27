@@ -10,7 +10,11 @@
 This is a template repository for [reviewdog](https://github.com/reviewdog/reviewdog) action with release automation.
 Click `Use this template` button to create your action based on this template.
 
-A sample action is to get GitHub star counts from a given repository.
+If you want to create your own reviewdog from scratch without using this
+template, please check release automation flow at least.
+It's important to manage release workflow and sync reviewdog version.
+
+This repo caontains a sample action to run [misspell](https://github.com/client9/misspell).
 
 ## Input
 
@@ -52,6 +56,9 @@ This action updates major/minor release tags on a tag push. e.g. Update v1 and v
 ref: https://help.github.com/en/articles/about-actions#versioning-your-action
 
 ### Lint - reviewdog integration
+
+This reviewdog action template itself is integrated with reviewdog to run lints
+which is useful for Docker container based actions.
 
 ![reviewdog integration](https://user-images.githubusercontent.com/3797062/72735107-7fbb9600-3bde-11ea-8087-12af76e7ee6f.png)
 
