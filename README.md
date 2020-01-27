@@ -44,7 +44,7 @@ inputs:
 name: reviewdog
 on: [pull_request]
 jobs:
-	# TODO: change `linter_name`.
+  # TODO: change `linter_name`.
   linter_name:
     name: runner / <linter-name>
     runs-on: ubuntu-latest
@@ -53,10 +53,10 @@ jobs:
       - uses: reviewdog/action-template@v1
         with:
           github_token: ${{ secrets.github_token }}
-					# Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
+          # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
           reporter: github-pr-review
-					# Change reporter level if you need.
-					# GitHub Status Check won't become failure with warning.
+          # Change reporter level if you need.
+          # GitHub Status Check won't become failure with warning.
           level: warning
 ```
 
