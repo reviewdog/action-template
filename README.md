@@ -14,7 +14,7 @@
 This is a template repository for [reviewdog](https://github.com/reviewdog/reviewdog) action with release automation.
 Click `Use this template` button to create your reviewdog action :dog:!
 
-If you want to create your own reviewdog actionfrom scratch without using this
+If you want to create your own reviewdog action from scratch without using this
 template, please check and copy release automation flow.
 It's important to manage release workflow and sync reviewdog version for all
 reviewdog actions.
