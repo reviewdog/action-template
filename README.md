@@ -19,7 +19,7 @@ template, please check and copy release automation flow.
 It's important to manage release workflow and sync reviewdog version for all
 reviewdog actions.
 
-This repo caontains a sample action to run [misspell](https://github.com/client9/misspell).
+This repo contains a sample action to run [misspell](https://github.com/client9/misspell).
 
 ## Input
 
