@@ -36,6 +36,9 @@ inputs:
   reporter:
     description: 'Reporter of reviewdog command [github-pr-check,github-check,github-pr-review].'
     default: 'github-pr-check'
+  reviewdog_flags:
+    description: 'Additional reviewdog flags'
+    default: ''
   ### Flags for <linter-name> ###
   locale:
     description: '-locale flag of misspell. (US/UK)'
