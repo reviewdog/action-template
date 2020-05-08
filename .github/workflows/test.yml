@@ -42,3 +42,4 @@ jobs:
           reporter: github-pr-review
           level: error
           locale: "US"
+          reviewdog_flags: -filter-mode=file -fail-on-error
