@@ -29,6 +29,7 @@ jobs:
           reporter: github-pr-check
           level: warning
           locale: "US"
+          workdir: ./testdata/subdir/
 
   test-pr-review:
     if: github.event_name == 'pull_request'
