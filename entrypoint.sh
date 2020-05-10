@@ -1,7 +1,7 @@
 #!/bin/sh
 set -e
 
-if [ -n "${GITHUB_WORKSPACE}" ] && [ -n "${INPUT_WORKDIR}" ]; then
+if [ -n "${GITHUB_WORKSPACE}" ] ; then
   cd "${GITHUB_WORKSPACE}/${INPUT_WORKDIR}" || exit
 fi
 
