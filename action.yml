@@ -17,7 +17,7 @@ inputs:
     default: 'github-pr-check'
   filter_mode:
     description: |
-      Filtering for the reviewdog command [added,diff_context,file,nofilter].
+      Filtering mode for the reviewdog command [added,diff_context,file,nofilter].
       Default is added.
     default: 'added'
   fail_on_error:
