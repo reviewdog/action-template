@@ -1,6 +1,6 @@
 FROM alpine:3.12
 
-ENV REVIEWDOG_VERSION=v0.10.0
+ENV REVIEWDOG_VERSION=v0.10.1
 
 SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
 
