@@ -2,7 +2,7 @@ FROM alpine:3.12
 
 ENV REVIEWDOG_VERSION=v0.10.2
 
-SHELL ["/bin/ash", "-eo", "pipefail", "-c"]
+SHELL ["/bin/bash", "-eo", "pipefail", "-c"]
 
 # hadolint ignore=DL3006
 RUN apk --no-cache add git
