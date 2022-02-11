@@ -39,11 +39,13 @@ jobs:
 
       # Create release
       - if: "steps.tag.outputs.value != ''"
-        run: |
-          gh release create ${{ steps.tag.outputs.value }} -t "Release ${{ steps.tag.outputs.value }}" --notes "${{ steps.bumpr.outputs.message }}"
         env:
+          TAG_NAME: ${{ steps.tag.outputs.value }}
+          BODY: ${{ steps.bumpr.outputs.message }}
           # This token is provided by Actions, you do not need to create your own token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${TAG_NAME}" -t "Release ${TAG_NAME}" --notes "${BODY}"
 
   release-check:
     if: github.event.action == 'labeled'
