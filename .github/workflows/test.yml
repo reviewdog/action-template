@@ -6,7 +6,7 @@ on:
   pull_request:
 jobs:
   test-check:
-    name: runner / <linter-name> (github-check)
+    name: runner / swiftlint (github-check)
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@1af3b93b6815bc44a9784bd300feb67ff0d1eeb3 # v6.0.0
@@ -15,7 +15,6 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-check
           level: info
-          locale: "US"
 
   test-pr-check:
     if: github.event_name == 'pull_request'
@@ -28,7 +27,6 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-check
           level: warning
-          locale: "US"
           workdir: ./testdata/subdir/
 
   test-pr-review:
@@ -42,5 +40,4 @@ jobs:
           github_token: ${{ secrets.github_token }}
           reporter: github-pr-review
           level: error
-          locale: "US"
           reviewdog_flags: -filter-mode=file -fail-on-error

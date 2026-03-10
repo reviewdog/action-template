@@ -27,18 +27,23 @@ This repo contains a sample action to run [misspell](https://github.com/client9/
 ```yaml
 inputs:
   github_token:
-    description: 'GITHUB_TOKEN'
+    description: 'GITHUB_TOKEN.'
     default: '${{ github.token }}'
-  workdir:
-    description: 'Working directory relative to the root directory.'
-    default: '.'
-  ### Flags for reviewdog ###
+    required: true
+  tool_name:
+    description: 'Tool name to use for reviewdog reporter'
+    default: 'swiftlint'
+    required: true
   level:
     description: 'Report level for reviewdog [info,warning,error]'
     default: 'error'
+    required: true
+  workdir:
+    description: 'Working directory relative to the root directory.'
+    default: '.'
   reporter:
     description: 'Reporter of reviewdog command [github-pr-check,github-check,github-pr-review].'
-    default: 'github-pr-check'
+    default: 'github-pr-review'
   filter_mode:
     description: |
       Filtering mode for the reviewdog command [added,diff_context,file,nofilter].
@@ -53,10 +58,10 @@ inputs:
   reviewdog_flags:
     description: 'Additional reviewdog flags'
     default: ''
-  ### Flags for <linter-name> ###
-  locale:
-    description: '-locale flag of misspell. (US/UK)'
-    default: ''
+  swiftlint_version:
+    description: 'SwiftLint version to install'
+    default: '0.63.2'
+    required: true
 ```
 
 ## Usage
@@ -66,19 +71,15 @@ inputs:
 name: reviewdog
 on: [pull_request]
 jobs:
-  # TODO: change `linter_name`.
-  linter_name:
-    name: runner / <linter-name>
+  swiftlint:
+    name: runner / swiftlint
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
       - uses: reviewdog/action-template@c0a1d65401d8e3c97336c75bb4b6f85677e8f27f # v1.20.0
         with:
           github_token: ${{ secrets.github_token }}
-          # Change reviewdog reporter if you need [github-pr-check,github-check,github-pr-review].
           reporter: github-pr-review
-          # Change reporter level if you need.
-          # GitHub Status Check won't become failure with warning.
           level: warning
 ```
 
