@@ -18,7 +18,7 @@ workflows:
         - 'actions/checkout@v7.0.1'
         - 'haya14busa/action-cond@v1.2.1'
         - 'reviewdog/action-alex@v1.19.0'
-        - 'reviewdog/action-hadolint@v1.55.0'
+        - 'reviewdog/action-hadolint@v1.56.0'
         - 'reviewdog/action-misspell@v1.30.5'
         - 'reviewdog/action-shellcheck@v1.34.1'
     '.github/workflows/test.yml':
@@ -59,9 +59,9 @@ dependencies:
         commit: 'sha1-99f7aecf3e4d06d5a3faf190dae5dc79ac530b5a'
         owner_id: 48765237
         repo_id: 234837904
-    'reviewdog/action-hadolint@v1.55.0':
-        ref: 'v1.55.0'
-        commit: 'sha1-1df92335c6c70880e301926d46148aeb27de1912'
+    'reviewdog/action-hadolint@v1.56.0':
+        ref: 'v1.56.0'
+        commit: 'sha1-a3bc84c51f4ddbcbc5b91d950d0b66c15c88b113'
         owner_id: 48765237
         repo_id: 226392298
     'reviewdog/action-misspell@v1.30.5':
